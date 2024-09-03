@@ -158,6 +158,7 @@ pub fn build(b: *std.Build) void {
 
     const exe = b.addExecutable(.{
         .name = "make",
+        .root_source_file = b.path("src/main.zig"),
         .target = target,
         .optimize = optimize,
         .link_libc = true,
@@ -193,7 +194,7 @@ const make_src = [_][]const u8{
     "src/job.c",
     "src/load.c",
     "src/loadapi.c",
-    "src/main.c",
+    "src/libmake.c",
     "src/misc.c",
     "src/output.c",
     "src/read.c",

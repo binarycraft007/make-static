@@ -1019,10 +1019,10 @@ msdos_return_to_initial_directory (void)
 
 #ifdef _AMIGA
 int
-main (int argc, char **argv)
+make_main (int argc, char **argv)
 #else
 int
-main (int argc, char **argv, char **envp)
+make_main (int argc, char **argv, char **envp)
 #endif
 {
   static char *stdin_nm = 0;
