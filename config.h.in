@@ -316,6 +316,12 @@
 /* Define to 1 if you have the `waitpid' function. */
 #undef HAVE_WAITPID
 
+/* Define to 1 if you have the <linux/binfmts.h> header file. */
+#undef HAVE_LINUX_BINFMTS_H
+
+/* Define to 1 if you have the <sys/user.h> header file. */
+#undef HAVE_SYS_USER_H
+
 /* Build host information. */
 #undef MAKE_HOST
 
