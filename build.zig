@@ -5,7 +5,7 @@ pub fn build(b: *std.Build) void {
     const optimize = b.standardOptimizeOption(.{});
 
     const config_h = b.addConfigHeader(.{
-        .style = .{ .autoconf = b.path("config.h.in") },
+        .style = .{ .autoconf = b.path("src/config.h.in") },
         .include_path = "config.h",
     }, .{
         .ENABLE_NLS = 1,
@@ -172,38 +172,38 @@ pub fn build(b: *std.Build) void {
     exe.defineCMacro("LOCALEDIR", "\"/usr/share/locale\"");
     exe.defineCMacro("INCLUDEDIR", "\"/usr/include\"");
     exe.defineCMacro("HAVE_CONFIG_H", null);
-    exe.addIncludePath(b.path("."));
-    exe.addIncludePath(b.path("glob"));
+    exe.addIncludePath(b.path("src"));
+    exe.addIncludePath(b.path("src/glob"));
     b.installArtifact(exe);
 }
 
 const make_src = [_][]const u8{
-    "ar.c",
-    "arscan.c",
-    "commands.c",
-    "default.c",
-    "dir.c",
-    "expand.c",
-    "file.c",
-    "function.c",
-    "getopt.c",
-    "getopt1.c",
-    "guile.c",
-    "implicit.c",
-    "job.c",
-    "load.c",
-    "loadapi.c",
-    "main.c",
-    "misc.c",
-    "output.c",
-    "read.c",
-    "remake.c",
-    "rule.c",
-    "signame.c",
-    "strcache.c",
-    "variable.c",
-    "version.c",
-    "vpath.c",
-    "hash.c",
-    "remote-stub.c",
+    "src/ar.c",
+    "src/arscan.c",
+    "src/commands.c",
+    "src/default.c",
+    "src/dir.c",
+    "src/expand.c",
+    "src/file.c",
+    "src/function.c",
+    "src/getopt.c",
+    "src/getopt1.c",
+    "src/guile.c",
+    "src/implicit.c",
+    "src/job.c",
+    "src/load.c",
+    "src/loadapi.c",
+    "src/main.c",
+    "src/misc.c",
+    "src/output.c",
+    "src/read.c",
+    "src/remake.c",
+    "src/rule.c",
+    "src/signame.c",
+    "src/strcache.c",
+    "src/variable.c",
+    "src/version.c",
+    "src/vpath.c",
+    "src/hash.c",
+    "src/remote-stub.c",
 };
