@@ -1,10 +1,9 @@
 const std = @import("std");
+const builtin = @import("builtin");
+const make = @import("root.zig");
 
-extern fn make_main(argc: c_int, argv: [*c][*c]u8, envp: [*c][*c]u8) c_int;
-
-pub fn main() u8 {
-    const argv = std.os.argv;
-    const envp = std.os.environ;
-    const rc = make_main(@intCast(argv.len), @ptrCast(argv.ptr), @ptrCast(envp));
-    return @intCast(rc);
+pub fn main() !void {
+    var arena_allocator = std.heap.ArenaAllocator.init(std.heap.c_allocator);
+    defer arena_allocator.deinit();
+    try make.run();
 }
